@@ -181,11 +181,16 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 
 function edd_statusboard_profile_endpoint_display( $user ) {
 	global $edd_options;
-	if ( ( edd_get_option( 'api_allow_user_keys', false ) || current_user_can( 'manage_shop_settings' ) ) && current_user_can( 'edit_user', $user->ID ) ) {
 
-		$user = get_userdata( $user->ID );
-		$key = $user->edd_user_public_key;
-		$token = hash( 'md5', $user->edd_user_secret_key . $user->edd_user_public_key );
+	$user = get_userdata( $user->ID );
+	$key = $user->edd_user_public_key;
+	$token = hash( 'md5', $user->edd_user_secret_key . $user->edd_user_public_key );
+
+	if ( ! current_user_can( 'edit_user', $user->ID ) ) {
+		return;
+	}
+
+	if ( ( edd_get_option( 'api_allow_user_keys', false ) || current_user_can( 'manage_shop_settings' ) ) || ( ! empty( $key ) && ! empty( $token ) ) ) {
 
 		$sb_url_base = get_bloginfo( 'url' ) . '/edd-api';
 		?>
@@ -210,6 +215,7 @@ function edd_statusboard_profile_endpoint_display( $user ) {
 				</tr>
 			</tbody>
 		</table>
+
 	<?php
 	}
 }
