@@ -7,7 +7,7 @@
 # main config
 PLUGINSLUG=${PWD##*/} # returns basename of current directory
 CURRENTDIR=`pwd`
-MAINFILE="pushover-notifications.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="edd-status-board.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
@@ -15,16 +15,16 @@ GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
 # svn config
 SVNPATH="/tmp/$PLUGINSLUG" # path to a temp SVN repo. No trailing slash required and don't add trunk.
 SVNURL="http://plugins.svn.wordpress.org/$PLUGINSLUG" # Remote SVN repo on wordpress.org, with no trailing slash
-SVNUSER="cklosowski" # your svn username
+SVNUSER="cklosows" # your svn username
 
 
 # Let's begin...
 echo ".........................................."
-echo 
+echo
 echo "Preparing to deploy WordPress plugin"
-echo 
+echo
 echo ".........................................."
-echo 
+echo
 
 # Check version in readme.txt is the same as plugin file
 NEWVERSION1=`grep "^Stable tag" $GITPATH/readme.txt | awk -F' ' '{print $3}' | sed 's/[[:space:]]//g'`
@@ -48,7 +48,7 @@ read COMMITMSG
 # git push origin master
 # git push origin master --tags
 
-echo 
+echo
 echo "Creating local copy of SVN repo ..."
 svn co $SVNURL $SVNPATH
 
