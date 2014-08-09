@@ -3,7 +3,7 @@ Contributors: cklosows
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.1
 Donate link: https://wp-push.com/donations/
 License: GPLv2 or later
 
@@ -23,6 +23,7 @@ Using your Easy Digital Downloads API Key and Tokens, you can display 3 differen
 * http://yoursite.com/edd-api/sbsales/?key=[your key]&token=[your token]
 * http://yoursite.com/edd-api/sbearnings/?key=[your key]&token=[your token]
 * http://yoursite.com/edd-api/sbhybrid/?key=[your key]&token=[your token]
+* http://yoursite.com/edd-api/sbcommissions/?key=[your key]&token=[your token]
 
 You can manually add them to Status Board, or use the buttons located in the Profile page of wp-admin to automatically add the graphs (as seen in Screenshot 2).
 
@@ -46,6 +47,9 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1 =
+* Adding support for commissions
+
 = 1.0 =
 * Initial Release
 
