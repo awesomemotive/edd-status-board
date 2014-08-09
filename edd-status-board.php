@@ -122,10 +122,10 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 			}
 
 			$dates = array();
-			$i = 0;
-			while ( $i <= 7 ) {
+			$i = 7;
+			while ( $i >= 0 ) {
 				$dates[date( 'n\/j', strtotime( '-' . $i . ' days' ) )] = 0;
-				$i++;
+				$i--;
 			}
 
 			$commissions_earnings = $dates;
