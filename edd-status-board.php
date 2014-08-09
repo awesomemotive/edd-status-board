@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Status Board
 Plugin URI: http://www.kungfugrep.com
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.0
+Version: 1.1
 Author: Chris Klosowski
 Author URI: http://www.kungfugrep.com
 License: GPLv2 or later
@@ -16,7 +16,7 @@ if ( version_compare( EDD_VERSION, '1.5.2', '>=') ) {
 }
 
 function edd_statusboard_mode( $modes ) {
-	$additional_modes = array( 'sbsales', 'sbearnings', 'sbhybrid' );
+	$additional_modes = array( 'sbsales', 'sbearnings', 'sbhybrid', 'sbcommissions' );
 
 	return array_merge( $modes, $additional_modes );
 }
@@ -61,7 +61,7 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					'enddate'   => date( 'Ymd' )
 				) );
 
-			$earnings_data = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ), 
+			$earnings_data = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
 														array_slice( $earnings_stats['earnings'], 0, 8, true ),
 														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
 			$statusboard_data['graph']['datasequences'][] = $earnings_data;
@@ -97,6 +97,76 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
 			$statusboard_data['graph']['datasequences'][] = $data_earnings;
 			break;
+
+		case 'sbcommissions':
+			if ( !class_exists( 'EDDC_REST_API' ) ) {
+				break;
+			}
+
+			$statusboard_mode = true;
+			$statusboard_data['graph']['title'] = get_bloginfo( 'name' ) . ' - ' . __( 'Earned Commissions', 'edd-statusboard-txt' );
+			$statusboard_data['graph']['yAxis']['prefix'] = apply_filters( 'edd_statusbaord_earnings_prefix', '$' );
+			$statusboard_data['graph']['yAxis']['suffix'] = apply_filters( 'edd_statusbaord_earnings_suffix', '' );
+
+			// Format Commissions
+			$user_id = $api->get_user( $_REQUEST['key'] );
+
+			if ( empty( $user_id ) ) {
+				return;
+			}
+
+			$commissions = new EDDC_REST_API;
+			$stats = $commissions->output_data( $data, 'commissions', $api );
+			if ( empty( $stats ) ) {
+				return;
+			}
+
+			$dates = array();
+			$i = 0;
+			while ( $i <= 7 ) {
+				$dates[date( 'n\/j', strtotime( '-' . $i . ' days' ) )] = 0;
+				$i++;
+			}
+
+			$commissions_earnings = $dates;
+			$commissions_sales    = $dates;
+
+			$start_date           = strtotime( date( 'n\/j', strtotime( '-7 days' ) ) );
+			foreach( $stats['unpaid'] as $entry ) {
+
+				if ( $start_date > strtotime( date( 'n\/j', strtotime( $entry['date'] ) ) ) ) {
+					continue;
+				}
+
+				$date = date( 'n\/j', strtotime( $entry['date'] ) );
+
+				if ( isset( $commissions_earnings[$date] ) ) {
+					$commissions_earnings[$date] += $entry['amount'];
+				} else {
+					$commissions_earnings[$date] = $entry['amount'];
+				}
+
+				if ( isset( $commissions_sales[$date] ) ) {
+					$commissions_sales[$date] ++;
+				} else {
+					$commissions_sales[$date] = 1;
+				}
+
+
+
+			}
+
+			$data_sales = edd_statusboard_format_datapoints( __( 'Sales', 'edd-statusboard-txt' ),
+														array_slice( $commissions_sales, 0, 8, true ),
+														apply_filters( 'edd_statusboard_sales_color', 'orange' ) );
+			$statusboard_data['graph']['datasequences'][] = $data_sales;
+
+			$data_earnings = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
+														array_slice( $commissions_earnings, 0, 8, true ),
+														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
+			$statusboard_data['graph']['datasequences'][] = $data_earnings;
+
+			break;
 	endswitch;
 
 	if ( $statusboard_mode ) :
@@ -111,8 +181,8 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 
 function edd_statusboard_profile_endpoint_display( $user ) {
 	global $edd_options;
+	if ( ( edd_get_option( 'api_allow_user_keys', false ) || current_user_can( 'manage_shop_settings' ) ) && current_user_can( 'edit_user', $user->ID ) ) {
 
-	if ( ( isset( $edd_options['api_allow_user_keys'] ) || current_user_can( 'manage_shop_settings' ) ) && current_user_can( 'view_shop_reports' ) ) {
 		$user = get_userdata( $user->ID );
 		$key = $user->edd_user_public_key;
 		$token = hash( 'md5', $user->edd_user_secret_key . $user->edd_user_public_key );
@@ -127,15 +197,21 @@ function edd_statusboard_profile_endpoint_display( $user ) {
 						<label for="edd_set_api_key"><?php echo sprintf( __( 'Click a button to add the graph to Status Board. Requires an iPad with the <a href="%s" target="_blank">Status Board app</a> insatlled', 'edd-statusboard-txt' ), 'https://itunes.apple.com/us/app/status-board/id449955536?mt=8' ); ?></label>
 					</th>
 					<td>
-						<a class="button secondary" id="sbsales" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbsales/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Sales to Status Board', 'edd-statusboard-txt' ); ?></a> 
-						<a class="button secondary" id="sbearnings" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbearnings/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Earnings to Status Board', 'edd-statusboard-txt' ); ?></a> 
+						<?php if ( ( isset( $edd_options['api_allow_user_keys'] ) || current_user_can( 'manage_shop_settings' ) ) && current_user_can( 'view_shop_reports' ) ) : ?>
+						<a class="button secondary" id="sbsales" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbsales/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Sales to Status Board', 'edd-statusboard-txt' ); ?></a>
+						<a class="button secondary" id="sbearnings" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbearnings/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Earnings to Status Board', 'edd-statusboard-txt' ); ?></a>
 						<a class="button secondary" id="sbhybrid" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbhybrid/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Hybrid to Status Board', 'edd-statusboard-txt' ); ?></a><br />
+						<?php endif; ?>
+						<?php if ( class_exists( 'EDDC_REST_API' ) ) : ?>
+						<a class="button secondary" id="sbcommissions" href="panicboard://?url=<?php echo urlencode( $sb_url_base . '/sbcommissions/?key=' . $key . '&token=' . $token ); ?>&panel=graph"><?php _e( 'Add Commissions to Status Board', 'edd-statusboard-txt' ); ?></a><br />
+						<?php endif; ?>
 						<small>* <?php _e( 'These graphs are unique to your user. Each user with API Access should use their own profile to add graphs to Status Board.', 'edd-statusboard-txt' ); ?></small>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-	<?php }
+	<?php
+	}
 }
 
 function edd_statusboard_format_datapoints( $title = false, $datapoints, $color = 'green' ) {
