@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Status Board
 Plugin URI: http://www.kungfugrep.com
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.1.1
+Version: 1.1.2
 Author: Chris Klosowski
 Author URI: http://www.kungfugrep.com
 License: GPLv2 or later
@@ -31,6 +31,7 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 		case 'sbsales':
 			$statusboard_mode = true;
 			$statusboard_data['graph']['title'] = get_bloginfo( 'name' ) . ' - ' . __( 'Sales', 'edd-statusboard-txt' );
+			$statusboard_data['graph']['total'] = true;
 			// Format Sales
 			$sales_stats = $api->get_stats( array(
 					'type'      => 'sales',
@@ -49,6 +50,7 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 		case 'sbearnings':
 			$statusboard_mode = true;
 			$statusboard_data['graph']['title'] = get_bloginfo( 'name' ) .  ' - ' . __( 'Earnings', 'edd-statusboard-txt' );
+			$statusboard_data['graph']['total'] = true;
 			$statusboard_data['graph']['yAxis']['prefix'] = apply_filters( 'edd_statusbaord_earnings_prefix', '$' );
 			$statusboard_data['graph']['yAxis']['suffix'] = apply_filters( 'edd_statusbaord_earnings_suffix', '' );
 

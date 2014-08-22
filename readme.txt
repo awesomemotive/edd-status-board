@@ -3,7 +3,7 @@ Contributors: cklosows
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Donate link: https://wp-push.com/donations/
 License: GPLv2 or later
 
@@ -47,6 +47,9 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.2 =
+* NEW: Solo graphs of Sales and Earnings now contain running total
+
 = 1.1.1 =
 * FIX: Reverse Array to show dates in oldest to newest (LTR)
 * FIX: Show button for commissions graph when user has api keys, even if option for users to generate keys is disabled
