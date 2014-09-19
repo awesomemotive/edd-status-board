@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Status Board
 Plugin URI: http://www.kungfugrep.com
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.1.3
+Version: 1.1.3.1
 Author: Chris Klosowski
 Author URI: http://www.kungfugrep.com
 License: GPLv2 or later
@@ -120,7 +120,7 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 			$commissions = new EDDC_REST_API;
 
 			// Determine if we have the new or old output method name
-			$output_method = method_exists( $commissions, 'store_commission_data' ) ? 'store_commission_data' : 'output_data';
+			$output_method = method_exists( $commissions, 'user_commission_data' ) ? 'user_commission_data' : 'output_data';
 
 			$stats = $commissions->$output_method( $data, 'commissions', $api );
 			if ( empty( $stats ) ) {
