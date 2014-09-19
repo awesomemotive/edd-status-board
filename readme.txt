@@ -3,7 +3,7 @@ Contributors: cklosows
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1.3
+Stable tag: 1.1.3.1
 Donate link: https://wp-push.com/donations/
 License: GPLv2 or later
 
