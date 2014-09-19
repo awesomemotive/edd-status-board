@@ -2,8 +2,8 @@
 Contributors: cklosows
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 1.1.2
+Tested up to: 4.0
+Stable tag: 1.1.3
 Donate link: https://wp-push.com/donations/
 License: GPLv2 or later
 
@@ -20,10 +20,10 @@ Using your Easy Digital Downloads API Key and Tokens, you can display 3 differen
 * A Hybrid of last 7 days sales & earnings
 
 = The URL endpoints are =
-* http://yoursite.com/edd-api/sbsales/?key=[your key]&token=[your token]
-* http://yoursite.com/edd-api/sbearnings/?key=[your key]&token=[your token]
-* http://yoursite.com/edd-api/sbhybrid/?key=[your key]&token=[your token]
-* http://yoursite.com/edd-api/sbcommissions/?key=[your key]&token=[your token]
+* http://yoursite.com/edd-api/sbsales/?key=apikey&token=usertoken
+* http://yoursite.com/edd-api/sbearnings/?key=apikey&token=usertoken
+* http://yoursite.com/edd-api/sbhybrid/?key=apikey&token=usertoken
+* http://yoursite.com/edd-api/sbcommissions/?key=apikey&token=usertoken
 
 You can manually add them to Status Board, or use the buttons located in the Profile page of wp-admin to automatically add the graphs (as seen in Screenshot 2).
 
@@ -47,6 +47,9 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.3 =
+* FIX: Update to support the new EDD Commissions output method name (backwards compatible with the old method name sitll);
+
 = 1.1.2 =
 * NEW: Solo graphs of Sales and Earnings now contain running total
 
