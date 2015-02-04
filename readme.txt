@@ -1,5 +1,5 @@
 === EDD - Status Board ===
-Contributors: cklosows
+Contributors: cklosows, mordauk
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 4.0
