@@ -3,7 +3,7 @@ Contributors: cklosows
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 Donate link: https://wp-push.com/donations/
 License: GPLv2 or later
 
@@ -37,6 +37,7 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 * edd_statusbaord_earnings_suffix - Alters the suffix of earnings amounts (Default: blank)
 * edd_statusboard_earnings_color - Alters the color of the earnings bar graphs (Default: green)
 * edd_statusboard_date_format - Alter the date format of the X-Axis. (Default: n/j or, month/day, uses PHP date formatting)
+* edd_statusboard_scale - By default Status Board auto scales based on the numbers in the data (thousands, millions, etc). You can set this via the filter (Default: 1, no scaling). A value of 0 will enable auto scaling.
 
 == Installation ==
 
@@ -48,6 +49,9 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.5 =
+* NEW: Forces a scale of 1, to avoid "(Thousands)" from auto scaling the graphs. Filter added to allow setting the scale or auto scaling.
+
 = 1.1.4 =
 * NEW: Endpoint for store-wide unpaid commissions
 

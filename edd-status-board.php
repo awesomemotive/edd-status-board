@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Status Board
 Plugin URI: http://www.kungfugrep.com
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.1.4
+Version: 1.1.5
 Author: Chris Klosowski
 Author URI: http://www.kungfugrep.com
 License: GPLv2 or later
@@ -26,6 +26,7 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 	$api = new EDD_API;
 
 	$statusboard_mode = false;
+	$graph_scale      = apply_filters( 'edd_statusboard_scale', 1 );
 
 	switch ( $query_mode ) :
 		case 'sbsales':
@@ -233,6 +234,9 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 
 			break;
 	endswitch;
+
+
+	$statusboard_data['graph']['yAxis']['scaleTo'] = $graph_scale;
 
 	if ( $statusboard_mode ) :
 		$data = array( 'graph' => array() );
