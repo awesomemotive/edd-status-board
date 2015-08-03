@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EDD - Status Board\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-23 00:24-0700\n"
-"PO-Revision-Date: 2014-09-23 00:24-0700\n"
-"Last-Translator: Chris Klosowski <cklosowski@gmail.com>\n"
+"POT-Creation-Date: 2015-08-03 10:47-0700\n"
+"PO-Revision-Date: 2015-08-03 10:47-0700\n"
+"Last-Translator: Chris Klosowski <chris@filament-studios.com>\n"
 "Language-Team: Chris Klosowski <cklosowski@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -12,65 +12,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../edd-status-board.php:33 ../edd-status-board.php:44
-#: ../edd-status-board.php:84 ../edd-status-board.php:165
+#: ../edd-status-board.php:34 ../edd-status-board.php:45
+#: ../edd-status-board.php:85 ../edd-status-board.php:166
 msgid "Sales"
 msgstr ""
 
-#: ../edd-status-board.php:52 ../edd-status-board.php:66
-#: ../edd-status-board.php:97 ../edd-status-board.php:170
-#: ../edd-status-board.php:228
+#: ../edd-status-board.php:53 ../edd-status-board.php:67
+#: ../edd-status-board.php:98 ../edd-status-board.php:171
+#: ../edd-status-board.php:229
 msgid "Earnings"
 msgstr ""
 
-#: ../edd-status-board.php:74
+#: ../edd-status-board.php:75
 msgid "Sales & Earnings"
 msgstr ""
 
-#: ../edd-status-board.php:109
+#: ../edd-status-board.php:110
 msgid "Earned Commissions"
 msgstr ""
 
-#: ../edd-status-board.php:183
+#: ../edd-status-board.php:184
 msgid "Store Commissions"
 msgstr ""
 
-#: ../edd-status-board.php:262
+#: ../edd-status-board.php:266
 msgid "Easy Digital Downloads - Status Board"
 msgstr ""
 
-#: ../edd-status-board.php:267
+#: ../edd-status-board.php:271
 #, php-format
 msgid ""
 "Click a button to add the graph to Status Board. Requires an iPad with the "
-"<a href=\"%s\" target=\"_blank\">Status Board app</a> insatlled"
+"<a href=\"%s\" target=\"_blank\">Status Board app</a> installed"
 msgstr ""
 
-#: ../edd-status-board.php:272
+#: ../edd-status-board.php:276
 msgid "Add Sales to Status Board"
 msgstr ""
 
-#: ../edd-status-board.php:273
+#: ../edd-status-board.php:277
 msgid "Add Earnings to Status Board"
 msgstr ""
 
-#: ../edd-status-board.php:274
+#: ../edd-status-board.php:278
 msgid "Add Hybrid to Status Board"
 msgstr ""
 
-#: ../edd-status-board.php:279
+#: ../edd-status-board.php:283
 msgid "Add Your Commissions"
 msgstr ""
 
-#: ../edd-status-board.php:281
+#: ../edd-status-board.php:285
 msgid "Add Store Commissions"
 msgstr ""
 
-#: ../edd-status-board.php:285
+#: ../edd-status-board.php:289
 msgid ""
 "These graphs are unique to your user. Each user with API Access should use "
 "their own profile to add graphs to Status Board."
