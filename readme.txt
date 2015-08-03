@@ -20,11 +20,11 @@ Using your Easy Digital Downloads API Key and Tokens, you can display 3 differen
 * A Hybrid of last 7 days sales & earnings
 
 = The URL endpoints are =
-* http://yoursite.com/edd-api/sbsales/?key=apikey&token=usertoken
-* http://yoursite.com/edd-api/sbearnings/?key=apikey&token=usertoken
-* http://yoursite.com/edd-api/sbhybrid/?key=apikey&token=usertoken
-* http://yoursite.com/edd-api/sbcommissions/?key=apikey&token=usertoken
-* http://yoursite.com/edd-api/sbstorecommissions/?key=apikey&token=usertoken
+* http://example.org/edd-api/sbsales/?key=apikey&token=usertoken
+* http://example.org/edd-api/sbearnings/?key=apikey&token=usertoken
+* http://example.org/edd-api/sbhybrid/?key=apikey&token=usertoken
+* http://example.org/edd-api/sbcommissions/?key=apikey&token=usertoken
+* http://example.org/edd-api/sbstorecommissions/?key=apikey&token=usertoken
 
 You can manually add them to Status Board, or use the buttons located in the Profile page of wp-admin to automatically add the graphs (as seen in Screenshot 2).
 
