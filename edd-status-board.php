@@ -158,7 +158,6 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 			}
 
 			$commissions_earnings = array();
-			$commissions_sales    = array();
 
 			$days = ! empty( $_REQUEST['days'] ) && absint( $_REQUEST['days'] ) ? absint( $_REQUEST['days'] ) : 7;
 			$days = $days - 1;
@@ -170,7 +169,6 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					$day   = date( 'j', strtotime( $date ) );
 					$date  = date( 'n\/j', strtotime( $date ) );
 					$commissions_earnings[ $date ] = edd_get_commissions_by_date( $day, $month, $year, null );
-					$commissions_sales[ $date ]    = edd_get_commission_sales_by_date( $day, $month, $year, null );
 					$days--;
 			}
 
