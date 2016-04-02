@@ -28,7 +28,7 @@ Using your Easy Digital Downloads API Key and Tokens, you can display 3 differen
 
 You can manually add them to Status Board, or use the buttons located in the Profile page of wp-admin to automatically add the graphs (as seen in Screenshot 2).
 
-**This plugin requires Easy Digital Downloads version 1.5.2 or greater.**
+**This plugin requires Easy Digital Downloads version 2.4 or greater.**
 
 = The following filters exist =
 * edd_statusboard_graph_type - Alters the type of graph, bar or line. (Default: bar)
