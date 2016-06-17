@@ -40,11 +40,13 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					'date'      => 'range',
 					'startdate' => date( 'Ymd', strtotime( '-7 days' ) ),
 					'enddate'   => date( 'Ymd' )
-				) );
+				)
+			);
 
 			$sales_data = edd_statusboard_format_datapoints( __( 'Sales', 'edd-statusboard-txt' ),
-														array_slice( $sales_stats['sales'], 0, 8, true ),
-														apply_filters( 'edd_statusboard_sales_color', 'orange' ) );
+				array_slice( $sales_stats['sales'], 0, 8, true ),
+				apply_filters( 'edd_statusboard_sales_color', 'orange' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $sales_data;
 			break;
 
@@ -62,11 +64,13 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					'date'      => 'range',
 					'startdate' => date( 'Ymd', strtotime( '-7 days' ) ),
 					'enddate'   => date( 'Ymd' )
-				) );
+				)
+			);
 
 			$earnings_data = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
-														array_slice( $earnings_stats['earnings'], 0, 8, true ),
-														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
+				array_slice( $earnings_stats['earnings'], 0, 8, true ),
+				apply_filters( 'edd_statusboard_earnings_color', 'green' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $earnings_data;
 			break;
 
@@ -80,11 +84,13 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					'date'      => 'range',
 					'startdate' => date( 'Ymd', strtotime( '-7 days' ) ),
 					'enddate'   => date( 'Ymd' )
-				) );
+				)
+			);
 
 			$data_sales = edd_statusboard_format_datapoints( __( 'Sales', 'edd-statusboard-txt' ),
-														array_slice( $sales_stats['sales'], 0, 8, true ),
-														apply_filters( 'edd_statusboard_sales_color', 'orange' ) );
+				array_slice( $sales_stats['sales'], 0, 8, true ),
+				apply_filters( 'edd_statusboard_sales_color', 'orange' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $data_sales;
 
 			$earnings_stats = $api->get_stats( array(
@@ -93,11 +99,13 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 					'date'      => 'range',
 					'startdate' => date( 'Ymd', strtotime( '-7 days' ) ),
 					'enddate'   => date( 'Ymd' )
-				) );
+				)
+			);
 
 			$data_earnings = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
-														array_slice( $earnings_stats['earnings'], 0, 8, true ),
-														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
+				array_slice( $earnings_stats['earnings'], 0, 8, true ),
+				apply_filters( 'edd_statusboard_earnings_color', 'green' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $data_earnings;
 			break;
 
@@ -121,24 +129,26 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 			$days = $days - 1;
 
 			while ( $days >= 0 ) {
-					$date  = "-". $days . " days";
-					$year  = date( 'Y', strtotime( $date ) );
-					$month = date( 'n', strtotime( $date ) );
-					$day   = date( 'j', strtotime( $date ) );
-					$date  = date( 'n\/j', strtotime( $date ) );
-					$commissions_earnings[ $date ] = edd_get_commissions_by_date( $day, $month, $year, null, $user_id );
-					$commissions_sales[ $date ]    = edd_get_commission_sales_by_date( $day, $month, $year, null, $user_id );
-					$days--;
+				$date  = "-". $days . " days";
+				$year  = date( 'Y', strtotime( $date ) );
+				$month = date( 'n', strtotime( $date ) );
+				$day   = date( 'j', strtotime( $date ) );
+				$date  = date( 'n\/j', strtotime( $date ) );
+				$commissions_earnings[ $date ] = edd_get_commissions_by_date( $day, $month, $year, null, $user_id );
+				$commissions_sales[ $date ]    = edd_get_commission_sales_by_date( $day, $month, $year, null, $user_id );
+				$days--;
 			}
 
 			$data_sales = edd_statusboard_format_datapoints( __( 'Sales', 'edd-statusboard-txt' ),
-														$commissions_sales,
-														apply_filters( 'edd_statusboard_sales_color', 'orange' ) );
+				$commissions_sales,
+				apply_filters( 'edd_statusboard_sales_color', 'orange' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $data_sales;
 
 			$data_earnings = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
-														$commissions_earnings,
-														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
+				$commissions_earnings,
+				apply_filters( 'edd_statusboard_earnings_color', 'green' )
+			);
 			$statusboard_data['graph']['datasequences'][] = $data_earnings;
 
 			break;
@@ -163,18 +173,19 @@ function edd_statusboard_output( $data, $query_mode, $this ) {
 			$days = $days - 1;
 
 			while ( $days >= 0 ) {
-					$date  = "-". $days . " days";
-					$year  = date( 'Y', strtotime( $date ) );
-					$month = date( 'n', strtotime( $date ) );
-					$day   = date( 'j', strtotime( $date ) );
-					$date  = date( 'n\/j', strtotime( $date ) );
-					$commissions_earnings[ $date ] = edd_get_commissions_by_date( $day, $month, $year, null );
-					$days--;
+				$date  = "-". $days . " days";
+				$year  = date( 'Y', strtotime( $date ) );
+				$month = date( 'n', strtotime( $date ) );
+				$day   = date( 'j', strtotime( $date ) );
+				$date  = date( 'n\/j', strtotime( $date ) );
+				$commissions_earnings[ $date ] = edd_get_commissions_by_date( $day, $month, $year, null );
+				$days--;
 			}
 
 			$data_earnings = edd_statusboard_format_datapoints( __( 'Earnings', 'edd-statusboard-txt' ),
-														$commissions_earnings,
-														apply_filters( 'edd_statusboard_earnings_color', 'green' ) );
+				$commissions_earnings,
+				apply_filters( 'edd_statusboard_earnings_color', 'green' )
+			);
 
 			$statusboard_data['graph']['datasequences'][] = $data_earnings;
 
