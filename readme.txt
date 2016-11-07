@@ -3,8 +3,7 @@ Contributors: easydigitaldownloads, cklosows, mordauk
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 4.7
-Stable tag: 1.1.6
-Donate link: https://wp-push.com/donations/
+Stable tag: 1.1.7
 License: GPLv2 or later
 
 Integrate the Easy Digital Downloads API with the Status Board iPad app from Panic.
@@ -28,7 +27,7 @@ Using your Easy Digital Downloads API Key and Tokens, you can display 3 differen
 
 You can manually add them to Status Board, or use the buttons located in the Profile page of wp-admin to automatically add the graphs (as seen in Screenshot 2).
 
-**This plugin requires Easy Digital Downloads version 1.5.2 or greater.**
+**This plugin requires Easy Digital Downloads version 2.4 or greater.**
 
 = The following filters exist =
 * edd_statusboard_graph_type - Alters the type of graph, bar or line. (Default: bar)
@@ -49,6 +48,18 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.7 =
+* NEW: URL parameter for days for user commissions and store commissions
+* NEW: Requires EDD 2.4+
+* FIX: Undefined $user_id in user profile
+* FIX: Bad permissions checks for user profile
+* FIX: Fixed store commissions and user commissions data
+* TWEAK: Removed old EDD support
+* TWEAK: Commissions graph now is reflective of all commissions earned for a day, even paid commissions.
+* TWEAK: Use commissions's new functions for commissions by day for more accurate calculations
+* TWEAK: Added new commission sales by day function for more accurate calculations
+* UPDATED: Translations
+
 = 1.1.6 =
 * FIX: Spelling error in settings
 * FIX: Changed URLs in readme to be example.org
