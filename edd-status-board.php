@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Easy Digital Downloads - Status Board
-Plugin URI: http://www.kungfugrep.com
+Plugin URI: https://easydigitaldownloads.com/downloads/status-board/
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
 Version: 1.1.6
-Author: Chris Klosowski
-Author URI: http://www.kungfugrep.com
+Author: Easy Digital Downloads
+Author URI: https://easydigitaldownloads.com
 License: GPLv2 or later
 */
 
