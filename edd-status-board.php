@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Status Board
 Plugin URI: https://easydigitaldownloads.com/downloads/status-board/
 Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.1.7
+Version: 1.1.8
 Author: Easy Digital Downloads
 Author URI: https://easydigitaldownloads.com
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License: GPLv2 or later
 
 if ( class_exists( 'Easy_Digital_Downloads' ) && version_compare( EDD_VERSION, '2.4', '>=' ) ) {
 	add_filter( 'edd_api_valid_query_modes', 'edd_statusboard_mode' );
-	add_filter( 'edd_api_output_data', 'edd_statusboard_output', 10, 3 );
+	add_filter( 'edd_api_output_data', 'edd_statusboard_output', 10, 2 );
 	add_action( 'show_user_profile',   'edd_statusboard_profile_endpoint_display' );
 }
 
@@ -22,7 +22,7 @@ function edd_statusboard_mode( $modes ) {
 }
 
 
-function edd_statusboard_output( $data, $query_mode, $this ) {
+function edd_statusboard_output( $data, $query_mode ) {
 	$api = new EDD_API;
 
 	$statusboard_mode = false;
