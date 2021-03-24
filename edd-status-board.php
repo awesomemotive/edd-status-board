@@ -9,10 +9,19 @@ Author URI: https://easydigitaldownloads.com
 License: GPLv2 or later
 */
 
-if ( class_exists( 'Easy_Digital_Downloads' ) && version_compare( EDD_VERSION, '2.4', '>=' ) ) {
-	add_filter( 'edd_api_valid_query_modes', 'edd_statusboard_mode' );
-	add_filter( 'edd_api_output_data', 'edd_statusboard_output', 10, 2 );
-	add_action( 'show_user_profile',   'edd_statusboard_profile_endpoint_display' );
+add_action( 'init', 'edd_statusboard_init' );
+/**
+ * Initializes the plugin.
+ *
+ * @since 1.1.9
+ * @return void
+ */
+function edd_statusboard_init() {
+	if ( class_exists( 'Easy_Digital_Downloads' ) && version_compare( EDD_VERSION, '2.4', '>=' ) ) {
+		add_filter( 'edd_api_valid_query_modes', 'edd_statusboard_mode' );
+		add_filter( 'edd_api_output_data', 'edd_statusboard_output', 10, 2 );
+		add_action( 'show_user_profile', 'edd_statusboard_profile_endpoint_display' );
+	}
 }
 
 function edd_statusboard_mode( $modes ) {
