@@ -9,7 +9,7 @@ Author URI: https://easydigitaldownloads.com
 License: GPLv2 or later
 */
 
-add_action( 'init', 'edd_statusboard_init' );
+add_action( 'plugins_loaded', 'edd_statusboard_init' );
 /**
  * Initializes the plugin.
  *
