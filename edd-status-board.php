@@ -258,7 +258,7 @@ function edd_statusboard_profile_endpoint_display( $user ) {
 	}
 }
 
-function edd_statusboard_format_datapoints( $title = false, $datapoints, $color = 'green' ) {
+function edd_statusboard_format_datapoints( $title, $datapoints, $color = 'green' ) {
 	$return = array();
 
 	$return['title'] = $title;
