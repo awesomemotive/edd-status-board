@@ -1,13 +1,13 @@
 <?php
-/*
-Plugin Name: Easy Digital Downloads - Status Board
-Plugin URI: https://wordpress.org/plugins/edd-status-board/
-Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
-Version: 1.1.8
-Author: Sandhills Development, LLC
-Author URI: https://sandhillsdev.com
-License: GPLv2 or later
-*/
+/**
+ * Plugin Name: Easy Digital Downloads - Status Board
+ * Plugin URI: https://wordpress.org/plugins/edd-status-board/
+ * Description: Integrates the Easy Digital Downloads API with the Status Board iPad App.
+ * Version: 1.1.9
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
+ * License: GPLv2 or later
+ */
 
 add_action( 'plugins_loaded', 'edd_statusboard_init' );
 /**

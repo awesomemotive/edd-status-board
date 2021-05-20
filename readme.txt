@@ -3,7 +3,7 @@ Contributors: easydigitaldownloads, cklosows, mordauk
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
 Tested up to: 5.7
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 
 Integrate the Easy Digital Downloads API with the Status Board iPad app from Panic.
@@ -50,6 +50,12 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.9 =
+* The readme has been updated to note that the Status Board app is no longer for sale. Therefore this add-on will no longer be maintained after this update.
+* Plugin author information has been updated.
+* Fix: Deprecation notices in PHP 8.
+* Fix: Undefined constant warning.
+
 = 1.1.8 =
 * FIX: Make compatible with PHP 7.1
 
