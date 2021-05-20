@@ -12,6 +12,8 @@ Integrate the Easy Digital Downloads API with the Status Board iPad app from Pan
 
 EDD - Status Board Integrates the Easy Digital Downloads API with the Status Board iPad app.
 
+**Please note:** The Status Board app has been discontinued and is no longer available. If you already own it, this extension should work with it, but this extension will not be updated in the future.
+
 Using your Easy Digital Downloads API Key and Tokens, you can display 3 different bar graphs:
 
 * Last 7 days sales
@@ -89,13 +91,6 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 = 1.0 =
 * Initial Release
-
-== Frequently Asked Questions ==
-
-= Do I have to buy the app for iOS for iPad =
-
-Yes, this plugin requires that you buy the Status Board application by Panic. Their app is only available for iPad. You can download it directly from the App Store:
-https://itunes.apple.com/us/app/status-board/id449955536?mt=8
 
 == Screenshots ==
 1. View of the Hybrid Graph
