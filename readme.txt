@@ -2,7 +2,7 @@
 Contributors: easydigitaldownloads, cklosows, mordauk
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
-Tested up to: 4.7.2
+Tested up to: 5.7
 Stable tag: 1.1.8
 License: GPLv2 or later
 
