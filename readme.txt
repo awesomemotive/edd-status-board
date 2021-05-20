@@ -2,8 +2,8 @@
 Contributors: easydigitaldownloads, cklosows, mordauk
 Tags: status board, panic, easy digital downloads, edd, ios, ipad
 Requires at least: 3.0
-Tested up to: 4.7.2
-Stable tag: 1.1.8
+Tested up to: 5.7
+Stable tag: 1.1.9
 License: GPLv2 or later
 
 Integrate the Easy Digital Downloads API with the Status Board iPad app from Panic.
@@ -11,6 +11,8 @@ Integrate the Easy Digital Downloads API with the Status Board iPad app from Pan
 == Description ==
 
 EDD - Status Board Integrates the Easy Digital Downloads API with the Status Board iPad app.
+
+**Please note:** The Status Board app has been discontinued and is no longer available. If you already own it, this extension should work with it, but this extension will not be updated in the future.
 
 Using your Easy Digital Downloads API Key and Tokens, you can display 3 different bar graphs:
 
@@ -48,6 +50,12 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 
 == Changelog ==
+= 1.1.9 =
+* The readme has been updated to note that the Status Board app is no longer for sale. Therefore this add-on will no longer be maintained after this update.
+* Plugin author information has been updated.
+* Fix: Deprecation notices in PHP 8.
+* Fix: Undefined constant warning.
+
 = 1.1.8 =
 * FIX: Make compatible with PHP 7.1
 
@@ -89,13 +97,6 @@ You can manually add them to Status Board, or use the buttons located in the Pro
 
 = 1.0 =
 * Initial Release
-
-== Frequently Asked Questions ==
-
-= Do I have to buy the app for iOS for iPad =
-
-Yes, this plugin requires that you buy the Status Board application by Panic. Their app is only available for iPad. You can download it directly from the App Store:
-https://itunes.apple.com/us/app/status-board/id449955536?mt=8
 
 == Screenshots ==
 1. View of the Hybrid Graph
